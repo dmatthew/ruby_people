@@ -1,3 +1,9 @@
+.vagrant
+chef/nodes
+
+
+# GitHub gitignore defaults
+# ---------------------------------------------------------
 *.gem
 *.rbc
 /.config
