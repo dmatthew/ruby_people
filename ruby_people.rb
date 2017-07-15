@@ -1,5 +1,8 @@
+require 'mongo'
+
 class RubyPeople
   def run
+    Mongo::Logger.logger.level = ::Logger::FATAL
     puts "Welcome to Ruby People!"
     showChoices
   end
@@ -26,6 +29,12 @@ class RubyPeople
 
   def promptListPeople
     puts "You chose to list all people"
+
+    client = Mongo::Client.new('mongodb://192.168.42.20/people')
+    people = client[:people].find({})
+    people.each do |person|
+      puts '%-20.20s' % person[:name] + " | " + '%-3.3s' % person[:age].to_s + " | " + person[:occupation]
+    end
   end
 end
 
