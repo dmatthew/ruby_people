@@ -14,6 +14,7 @@ $ vagrant up
 ```
 $ vagrant ssh web
 $ cd /vagrant
+$ bundle install
 $ ruby ruby_people.rb
 ```
 

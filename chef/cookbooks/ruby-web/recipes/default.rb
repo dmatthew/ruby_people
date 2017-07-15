@@ -8,6 +8,6 @@ package node['ruby']['package'] do
 end
 
 # This is not needed if using Bundler
-gem_package 'mongo' do
+gem_package 'bundler' do
   action :install
 end
