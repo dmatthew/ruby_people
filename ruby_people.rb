@@ -34,6 +34,11 @@ class RubyPeople
 
   def promptRemovePerson
     puts "You chose to remove a person!"
+    print "Name of person to remove: "
+    name = gets.chomp
+
+    client = Mongo::Client.new('mongodb://192.168.42.20/people')
+    client[:people].delete_one(name: name)
   end
 
   def promptListPeople
