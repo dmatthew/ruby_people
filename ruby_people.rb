@@ -28,8 +28,13 @@ class RubyPeople
     print "Occupation: "
     occupation = gets.chomp
 
-    client = Mongo::Client.new('mongodb://192.168.42.20/people')
-    client[:people].insert_one({name: name, age: age, occupation: occupation})
+    begin
+      client = Mongo::Client.new('mongodb://192.168.42.20/people')
+      client[:people].insert_one({name: name, age: age, occupation: occupation})
+    rescue => e
+      puts "Error: " + e.message
+    end
+
   end
 
   def promptRemovePerson
@@ -37,17 +42,25 @@ class RubyPeople
     print "Name of person to remove: "
     name = gets.chomp
 
-    client = Mongo::Client.new('mongodb://192.168.42.20/people')
-    client[:people].delete_one(name: name)
+    begin
+      client = Mongo::Client.new('mongodb://192.168.42.20/people')
+      client[:people].delete_one(name: name)
+    rescue => e
+      puts "Error: " + e.message
+    end
   end
 
   def promptListPeople
     puts "You chose to list all people"
 
-    client = Mongo::Client.new('mongodb://192.168.42.20/people')
-    people = client[:people].find({})
-    people.each do |person|
-      puts '%-20.20s' % person[:name] + " | " + '%-3.3s' % person[:age].to_s + " | " + person[:occupation]
+    begin
+      client = Mongo::Client.new('mongodb://192.168.42.20/people')
+      people = client[:people].find({})
+      people.each do |person|
+        puts '%-20.20s' % person[:name] + " | " + '%-3.3s' % person[:age].to_s + " | " + person[:occupation]
+      end
+    rescue => e
+      puts "Error: " + e.message
     end
   end
 end
