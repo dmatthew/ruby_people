@@ -21,6 +21,15 @@ class RubyPeople
 
   def promptAddPerson
     puts "You chose to add a new person!"
+    print "Name: "
+    name = gets.chomp
+    print "Age: "
+    age = gets.chomp
+    print "Occupation: "
+    occupation = gets.chomp
+
+    client = Mongo::Client.new('mongodb://192.168.42.20/people')
+    client[:people].insert_one({name: name, age: age, occupation: occupation})
   end
 
   def promptRemovePerson
