@@ -21,4 +21,5 @@ $ ruby ruby_people.rb
 ## Tech Stack
 
 * Ruby
+* Bundler
 * MongoDB
