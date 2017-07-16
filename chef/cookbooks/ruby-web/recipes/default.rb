@@ -3,7 +3,11 @@
 # Recipe:: default
 #
 
-package node['ruby']['package'] do
+package node['ruby_people']['ruby_package'] do
+  action :install
+end
+
+package node['ruby_people']['node_package'] do
   action :install
 end
 
