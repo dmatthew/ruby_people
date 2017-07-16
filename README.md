@@ -15,8 +15,10 @@ $ vagrant up
 $ vagrant ssh web
 $ cd /vagrant
 $ bundle install
-$ ruby ruby_people.rb
+$ rails server -b 192.168.42.10
 ```
+
+Then go to 192.168.42.10:3000 to see the application.
 
 ## Tech Stack
 

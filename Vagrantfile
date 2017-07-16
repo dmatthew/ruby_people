@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
 
     # web config
     config.vm.define "web", primary: true do |web|
-        web.vm.hostname = "web.dev.scalapeople.com"
+        web.vm.hostname = "web.dev.rubypeople.com"
         web.vm.network "private_network", ip: "192.168.42.10"
 
         if Vagrant.has_plugin?("vagrant-hostmanager")
