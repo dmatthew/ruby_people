@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  http_basic_authenticate_with name: "user", password: "password", only: :destroy
+
   def create
     @person = Person.find(params[:person_id])
     @task = @person.tasks.create(task_params)
