@@ -5,5 +5,7 @@ class Person
   field :age, type: Integer
   field :occupation, type: String
 
+  embeds_many :tasks, dependent: :destroy
+
   validates :name, presence: true
 end

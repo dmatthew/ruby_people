@@ -13,5 +13,11 @@
   <%= @person.occupation %>
 </p>
 
+<h2>Tasks</h2>
+<%= render @person.tasks %>
+
+<h2>Add a task:</h2>
+<%= render 'tasks/form' %>
+
 <%= link_to 'Edit', edit_person_path(@person) %>
 <%= link_to 'All People', people_path %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  resources :people
+  resources :people do
+    resources :tasks
+  end
 
   root 'home#index'
 
